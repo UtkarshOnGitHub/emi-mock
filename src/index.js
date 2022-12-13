@@ -8,7 +8,7 @@ const emi = require("./routes/emi.route");
 const app = express();
 
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8080
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
@@ -28,6 +28,6 @@ app.use("/emi" , emi)
 
 mongoose.connect("mongodb+srv://kira:kira@cluster0.0iwcmem.mongodb.net/mocktest").then(()=>{
     app.listen(port , ()=>{
-        console.log("Server is Running on Port http://localhost:3000")
+        console.log("Server is Running on Port http://localhost:8080")
     })
 })

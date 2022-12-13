@@ -15,9 +15,14 @@ user.post("/signup" , async (req,res)=>{
         res.status(409).send("Cannot Create two User With same Email ");
         return
     }
-    const user = new UserModel({name,email,password});
-    await user.save() 
-    res.send("User Created Succsessfully")
+    try {
+        const user = new UserModel({name,email,password});
+        await user.save() 
+        res.send("User Created Succsessfully")
+    } catch (error) {
+        console.log(error)
+    }
+
 })
 
 
